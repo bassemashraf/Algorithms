@@ -87,5 +87,30 @@ namespace Algorithms
 
 
         }
+        public static int binarySearch(int[] sortedList, int key)
+        {
+            int start = 0;
+            int end = sortedList.Count() - 1;
+            while (start <= end)
+            {
+                int midpoint = (start + end) / 2;
+                if (sortedList[midpoint] == key)
+                {
+                    return midpoint;
+                }
+                else if (sortedList[midpoint] < key)
+                {
+                    start = midpoint + 1;
+                }
+                else
+                {
+                    end = midpoint - 1;
+                }
+            }
+
+            return -1;
+        }
+
     }
 }
+
